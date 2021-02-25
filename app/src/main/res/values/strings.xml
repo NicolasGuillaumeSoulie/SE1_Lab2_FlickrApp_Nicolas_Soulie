@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_image_url">https://www.flickr.com/services/feeds/photos_public.gne?tags=trees&amp;format=json</string>
+    <string name="app_name">Flickr app</string>
+</resources>
