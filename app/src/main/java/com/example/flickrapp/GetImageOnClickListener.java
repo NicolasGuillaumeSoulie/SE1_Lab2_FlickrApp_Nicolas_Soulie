@@ -13,11 +13,11 @@ import java.util.concurrent.TimeoutException;
 
 public class GetImageOnClickListener implements View.OnClickListener {
     static final String TAG = "GetImageOnClick";
-    String urlAddress = "https://www.flickr.com/services/feeds/photos_public.gne?tags=trees&format=json";
-    // String urlAddress = "https://api.flickr.com/services/rest/?method=flickr.photos.search&license=4&api_key=4167810fbc47cc7f1da6d151edf224d5&has_geo=1&lat=37.421998333333335&lon=-122.084&per_page=1&format=json";
+    String urlAddress;
     ImageView iv;
 
     public GetImageOnClickListener(ImageView iv) {
+        this.urlAddress = "https://www.flickr.com/services/feeds/photos_public.gne?tags=trees&format=json";
         this.iv = iv;
     }
 

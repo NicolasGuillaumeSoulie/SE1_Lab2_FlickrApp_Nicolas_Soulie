@@ -20,10 +20,8 @@ public class AsyncBitmapDownloader extends AsyncTask<String, Void, Bitmap> {
         HttpURLConnection urlConnection = null;
         try {
             Log.i(TAG, "Attempt at downloading : " + strings[0]);
-            url = new URL(strings[0].replace("\\",""));
+            url = new URL(strings[0].replace("\\", ""));
             urlConnection = (HttpURLConnection) url.openConnection();
-            // urlConnection.setDoInput(true);
-            // urlConnection.connect();
             InputStream in = urlConnection.getInputStream();
             bm = BitmapFactory.decodeStream(in);
             if (bm != null) Log.i(TAG, "Bitmap downloaded");

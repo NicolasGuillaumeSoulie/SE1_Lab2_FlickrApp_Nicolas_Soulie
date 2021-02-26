@@ -27,7 +27,7 @@ public class AsyncFlickrJSONData extends AsyncTask<String, Void, JSONObject> {
             try {
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
                 String s = readStream(in);
-                s = (String) s.subSequence(15, s.length() - 2);
+                s = (String) s.subSequence(s.indexOf('(') + 1, s.length() - 2);
                 result = new JSONObject(s);
                 // Log.i(TAG, s);
                 // Log.i(TAG, result.toString());

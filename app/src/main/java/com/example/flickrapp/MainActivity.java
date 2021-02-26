@@ -12,13 +12,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 public class MainActivity extends AppCompatActivity implements LocationListener {
-    Button getImageButton, listButton;
+    Button getImageButton, getLocationImageButton, listButton;
+    TextView getLocationText;
     LocationManager locationManager;
     double latitude, longitude;
     ImageView image;
@@ -47,8 +49,12 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
 
         image = findViewById(R.id.image);
+        getLocationText = findViewById(R.id.getLocationText);
         getImageButton = findViewById(R.id.getImageButton);
         getImageButton.setOnClickListener(new GetImageOnClickListener(image));
+
+        getLocationImageButton = findViewById(R.id.getLocationImageButton);
+        getLocationImageButton.setOnClickListener(new GetLocationImageOnClickListener(image));
 
         listButton = findViewById(R.id.listButton);
         listButton.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +69,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     public void onLocationChanged(@NonNull Location location) {
         latitude = location.getLatitude();
         longitude = location.getLongitude();
-        Log.i("Position", "lat : " + latitude + "| long : " + longitude);
+        Log.i("Position", "lat : " + latitude + "| lon : " + longitude);
+        getLocationText.setText("lat : " + String.format("%.3f", latitude) + " | lon : " + String.format("%.3f", longitude));
     }
 
     @Override
