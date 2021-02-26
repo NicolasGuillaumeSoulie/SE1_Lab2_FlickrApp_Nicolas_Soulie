@@ -91,7 +91,7 @@ public class MyAdapter extends BaseAdapter {
                 null);
 
         // Add the request to the queue
-        MySingleton.getInstance(context).addToRequestQueue(imgRqst);
+        MySingleton.getInstance(context.getApplicationContext()).addToRequestQueue(imgRqst);
 
         return imgV;
         /*
